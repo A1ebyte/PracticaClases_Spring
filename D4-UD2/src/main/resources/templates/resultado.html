@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Comenzando: Manejando Envio de datos</title> 
+	<meta charset="UTF-8">
+</head>
+<body>
+	<h1>Result</h1>
+    <p th:text="|id: ${saludo.id}|" />
+    <p th:text="'content: ' + ${saludo.contenido}" />
+    <p th:text="|idEncoded: ${encodeID}|" />
+    <p th:text="|contentEncoded: ${encodeContenido}|" />
+    
+    <a href="@{/saludo}">Submit another message</a><br/>
+    <a th:href="'/respuesta?id=' + ${encodeID} + '&contenido=' + ${encodeContenido}">volver con enlace</a>
+</body>
+</html>
