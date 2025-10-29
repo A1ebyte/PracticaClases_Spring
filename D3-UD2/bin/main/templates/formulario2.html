@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <form action="#" th:action="@{/}" th:object="${datos}" method="post">
+            <table>
+                <tr>
+                    <td>Sexo:</td>
+                    <td><input type="radio" th:field="*{sex}" value="Hombre"/>Hombre
+                    <br/><input type="radio" th:field="*{sex}" value="Mujer"/>Mujer
+                    <br/><input type="radio" th:field="*{sex}" value="No_Binario"/>No Binario
+                    <br/><input type="radio" th:field="*{sex}" value="Helicoptero_Apache"/>Helicoptero Apache</td>
+                </tr>
+                <tr>
+                    <td><button type="submit" name="opcion" value="1">Enviar</button>
+                    <button type="submit" name="opcion" value="-1">Atras</button></td>
+                </tr>
+                    <input type="hidden" th:field="*{nombre}" />
+           			<input type="hidden" th:field="*{estado}" />
+					<input type="hidden" th:field="*{hobbies}" />
+            </table>
+        </form>
+    </body>
+</html>

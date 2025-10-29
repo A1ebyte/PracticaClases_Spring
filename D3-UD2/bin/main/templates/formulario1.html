@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <form action="#" th:action="@{/}" th:object="${datos}" method="post">
+            <table>
+                <tr>
+                    <td>Nombre:</td>
+                    <td><input type="text" th:field="*{nombre}" /></td>
+                    <td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Nombre Error</td>
+                <tr>
+                    <td><button type="submit" name="opcion" value="1">Enviar</button></td>
+                </tr>
+           			<input type="hidden" th:field="*{estado}" />
+					<input type="hidden"th:field="*{sex}" /> 
+					<input type="hidden" th:field="*{hobbies}" />
+            </table>
+        </form>
+    </body>
+</html>

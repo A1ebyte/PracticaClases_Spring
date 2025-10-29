@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <form action="#" th:action="@{/}" th:object="${datos}" method="post">
+            <table>
+                <tr>
+                    <td>Nombre:</td>
+                    <td><input type="text" th:field="*{nombre}" /></td>
+                    <td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Nombre Error</td>
+                </tr>
+                <tr>
+                    <td>Edad:</td>
+                    <td><input type="text" th:field="*{edad}" /></td>
+                    <td th:if="${#fields.hasErrors('edad')}" th:errors="*{edad}">Edad Error</td>
+                </tr>
+                <tr>
+                    <td>IMC:</td>
+                    <td><input type="number" th:field="*{imc}" /></td>
+                    <td th:if="${#fields.hasErrors('imc')}" th:errors="*{imc}">Edad Error</td>
+                </tr>
+                <tr>
+                    <td>Sexo:</td>
+                    <td><input type="radio" th:field="*{sex}" value="Hombre" checked/>Hombre
+                    <br/><input type="radio" th:field="*{sex}" value="Mujer"/>Mujer</td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Enviar</button></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

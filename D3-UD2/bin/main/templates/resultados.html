@@ -1,0 +1,21 @@
+<html>
+<body>
+	<ol>
+		<li th:each="elemento:${datos.datosFinales}" th:text="${elemento}"></li>
+	</ol>
+	<!--<p th:text="|Nombre: ${datos.nombre}|" />
+	<p th:text="|Sexo: ${datos.sex}|" />
+	<p th:if="${datos.hobbies.size>0}" th:text="|Hobbies: ${datos.hobbies}|" />
+	<p th:if="${datos.hobbies.size==0}" th:text="|No me gusta hacer nada|" />-->
+	<p>
+		Volver al <a href="/">Inicio</a>
+	</p>
+	<form action="#" th:action="@{/}" th:object="${datos}" method="post">
+		<button type="submit" name="opcion" value="-1">Atras</button>
+		<input type="hidden" th:field="*{nombre}" /> 
+		<input type="hidden"th:field="*{sex}" /> 
+		<input type="hidden" th:field="*{estado}" /> 
+		<input type="hidden" th:field="*{hobbies}" />
+	</form>
+</body>
+</html>
