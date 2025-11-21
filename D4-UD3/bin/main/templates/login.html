@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Spring Security Ejemplo </title>
+    </head>
+    <body>
+        <div th:if="${param.error}">
+            Usuario y/o Contraseña invalida.
+        </div>
+        <div th:if="${param.logout}">
+            Te has salido de tu sesion.
+        </div>
+        <form th:action="@{/login}" method="post">
+            <div><label> Usuario : <input type="text" name="username"/> </label></div>
+            <div><label> Contraseña: <input type="password" name="password"/> </label></div>
+            <div><input type="submit" value="Sign In"/></div>
+        </form>
+    </body>
+</html>
