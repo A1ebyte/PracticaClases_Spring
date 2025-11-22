@@ -46,7 +46,21 @@ public class SeguriadWebConfig {
 				.password(encoder.encode("password"))
 				.roles("USER")
 				.build();
+		
+		UserDetails daw =
+				 User.builder()
+					.username("daw")
+					.password(encoder.encode("password"))
+					.roles("ALUMNO")
+					.build();
+		
+		UserDetails prof =
+				 User.builder()
+					.username("prof")
+					.password(encoder.encode("password"))
+					.roles("PROFESOR")
+					.build();
 
-		return new InMemoryUserDetailsManager(user);
+		return new InMemoryUserDetailsManager(user,daw,prof);
 	}
 }
