@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Ejercicio 1 Examen UD3</title>
+</head>
+
+<body>
+	<h1 th:text="|Chat con ${usuario}|" />
+	<div>
+		<p th:each="msj:${listaMsj}" th:text="${msj}"></p>
+		<!-- Aquí debe aparecer un párrafo por cada mensaje previo con su fecha -->	
+	</div>
+	<hr/>
+		
+	<form th:action="|/chat${cookie}|">
+		<label th:text="|${hora}:|" />
+		<input type="text" name="mensaje" />
+		<input type="submit" name="enviar" value="Enviar" />
+		<input type="submit" name="borrar" value="Borrar" />
+	</form>
+	
+	<a th:href="|/Ejercicio1${cookie}|">Volver a la lista de chats</a>
+</body>
+
+</html>

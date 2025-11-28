@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Ejercicio 1 Examen UD3</title>
+</head>
+
+<body>
+	<h1>Lista de chats</h1>
+	
+	<ul>
+		<li th:each="usuario : ${usuarios}">
+			<a th:href="|/chat${cookie}?usuario=${usuario}|" th:text="|Chat con ${usuario}|" />
+		</li>
+		
+	</ul>
+</body>
+
+</html>
