@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Carrito de Compras</title>
+<style>
+table {
+	border-collapse: collapse;
+	width: 80%;
+	margin: 20px auto;
+}
+
+th, td {
+	border: 1px solid #ddd;
+	padding: 10px;
+	text-align: center;
+}
+
+th {
+	background-color: #f2f2f2;
+}
+
+input[type=number] {
+	width: 60px;
+}
+
+.update-btn {
+	padding: 5px 15px;
+	margin-top: 10px;
+}
+
+.total {
+	font-weight: bold;
+}
+
+h2, h1 {
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<form action="/Tienda" method="post">
+		<h1>Tienda de Juegos</h1>
+		<h2 th:text="'Hola, ' + ${usuario} + '!'"></h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Producto</th>
+					<th>Precio Unitario</th>
+					<th>Stock Actual</th>
+					<th>Stock Provicional</th>
+					<th>Cantidad Comprar</th>
+					<th>Subtotal</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="item : ${carrito}">
+					<td th:text="${item.nombre}">Nombre Producto</td>
+					<td th:text="${item.precio}">0.00</td>
+					<td th:text="${item.stock}">0</td>
+					<td th:text="${item.stock-(cantidades[item.nombre]?:0)}">0</td>
+					<td><input type="number" th:name="|cantidades_${item.nombre}|"
+						th:value="${cantidades[item.nombre]?:0}"></td>
+					<td th:text="${item.precio*(cantidades[item.nombre]?:1)}">0.00</td>
+				</tr>
+				<tr>
+					<td style="border: none;"></td>
+					<td style="border: none;"></td>
+					<td style="border: none;"></td>
+					<td style="border: none;"></td>
+					<td style="border: none"></td>
+					<td th:text="|Total: ${precioProv}|" style="font-weight: bold; border: solid,3px,black; background-color:#f2f2f2;">0.00</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div style="text-align: center;">
+			<button type="submit" name="accion" value="actualizar"
+				class="update-btn">Actualizar Carrito</button>
+			<button type="submit" name="accion" value="finalizar"
+				class="update-btn">Finalizar Compra</button>
+		</div>
+
+		<h2 style="text-align: center; color:red;" th:if="${errorMayor}" th:text="${errorMayor}"></h2>
+		<h2 style="text-align: center; color:red;" th:if="${errorMenor}" th:text="${errorMenor}"></h2>
+	</form>
+</body>
+</html>

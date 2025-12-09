@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Carrito de Compras</title>
+<style>
+table {
+	border-collapse: collapse;
+	width: 80%;
+	margin: 20px auto;
+}
+
+th, td {
+	border: 1px solid #ddd;
+	padding: 10px;
+	text-align: center;
+}
+
+th {
+	background-color: #f2f2f2;
+}
+
+input[type=number] {
+	width: 60px;
+}
+
+.update-btn {
+	padding: 5px 15px;
+	margin-top: 10px;
+}
+
+.total {
+	font-weight: bold;
+}
+
+h2, h1 {
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<form action="/Admin" method="post">
+		<h1>Tienda de Juegos</h1>
+		<h2>Hola, Admin!</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Producto</th>
+					<th>Precio Unitario</th>
+					<th>Stock Actual</th>
+					<th>Cantidad Aumentar/Quitar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="item, indx : ${carrito}">
+					<td th:text="${item.key}">Nombre Producto</td>
+					<td th:text="${item.value.precio}">0.00</td>
+					<td th:text="${item.value.cantidadTotal}">0</td>
+					<td><input type="number" th:name="|cantidad_${item.key}|"
+						th:value="0"> <!-- Tambien funciona th:name="${'cantidad_' + item.key}" -->
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div style="text-align: center;">
+			<button type="submit" class="update-btn">Actualizar</button>
+			<button type="submit" name="accion" class="update-btn" value="Tienda">Ir a Tienda</button>
+		</div>
+	</form>
+</body>
+</html>

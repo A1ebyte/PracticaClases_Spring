@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Bienvenido</title>
+</head>
+<body>
+
+	<h1 style="text-align: center;">Bienvenido a la Tienda</h1>
+
+	<form action="/" method="post"
+		style="text-align: center; margin-top: 30px;">
+		<label>Introduce tu nombre:</label> <input type="text" name="nombre"
+			th:value="${nombre}">
+		<button type="submit">Entrar</button>
+		<h2 style="text-align: center; color:green;" th:if="${correcto}" th:text="${correcto}"></h2>
+	</form>
+	
+</body>
+</html>
