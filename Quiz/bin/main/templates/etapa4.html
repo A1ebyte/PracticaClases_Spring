@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>MiniQuizz etapa 4</title>
+</head>
+<body>
+	<form method="post" th:action="@{/}">
+		<div>
+			<p th:text="${errores}" />
+
+			<label>Pregunta 3:</label>
+			<h3>¿Cuál de estos es un lenguaje de programación?</h3>
+			<ol>
+				<li><input type="radio" th:name="respuesta" value=0>
+					HTML </input></li>
+				<li><input type="radio" th:name="respuesta"
+					value=0> CSS </input></li>
+				<li><input type="radio" th:name="respuesta"
+					value=0> MySql </input></li>
+				<li><input type="radio" th:name="respuesta"
+					value=1> Python </input></li>
+			</ol>
+		</div>
+		<button type="submit" name="opcion" value=1>Siguiente</button>
+		<button type="submit" name="opcion" value=-1>Anterior</button>
+	</form>
+</body>
+</html>
