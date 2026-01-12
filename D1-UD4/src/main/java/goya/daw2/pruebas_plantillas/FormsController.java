@@ -45,7 +45,7 @@ public class FormsController {
 		String errores = "";
 		
 		int numEtapa=((Integer)session.getAttribute("etapa"));
-		System.out.println(numEtapa);
+		System.out.println(numEtapa+"etapaPost");
 
 		// Validaciones
 		if (numEtapa == 1) {
@@ -65,6 +65,7 @@ public class FormsController {
 		if (!errores.isBlank()) 
 		{
 			modelo.addAttribute("nombre", nombre);
+			modelo.addAttribute("errores", errores);
 			return "etapa" + numEtapa;
 		}
 		
